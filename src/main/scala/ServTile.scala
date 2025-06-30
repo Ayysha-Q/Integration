@@ -204,7 +204,7 @@ override lazy val module = new ServTileModuleImp(this)
 
 
 
-/*val slaveTLNode = TLIdentityNode()
+val slaveTLNode = TLIdentityNode()
 
 val ServAXI4SNode = AXI4SlaveNode(Seq(
   AXI4SlavePortParameters(
@@ -217,12 +217,17 @@ val ServAXI4SNode = AXI4SlaveNode(Seq(
     )),
     beatBytes = beatBytes
   )
-))*/
+))
 
-/* Connect TileLink side to AXI4 side
-ServAXI4SNode :=
-  AXI4Fragmenter() := AXI4UserYanker() := AXI4Deinterleaver(beatBytes) :=
-  TLToAXI4() := TLBuffer() := TLWidthWidget(beatBytes) := slaveTLNode*/
+//Connect TileLink side to AXI4 side
+ServAXI4SNode    :=
+AXI4Fragmenter() := 
+AXI4UserYanker() := 
+AXI4Deinterleaver(beatBytes) :=
+TLToAXI4() := 
+TLBuffer() := 
+TLWidthWidget(beatBytes) := 
+slaveTLNode
 
 // Directly attach the SERV slave TL node to the PeripheryBus (for internal access)
 //pbuss.node := TLBuffer() := slaveTLNode
