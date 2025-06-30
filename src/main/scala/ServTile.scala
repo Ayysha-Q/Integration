@@ -198,7 +198,7 @@ override lazy val module = new ServTileModuleImp(this)
     := TLFIFOFixer(TLFIFOFixer.all) // fix FIFO ordering
     := TLWidthWidget(masterPortBeatBytes) // reduce size of TL
     := AXI4ToTL() // convert to TL
-    := AXI4UserYanker(Some(2)) // remove user field on AXI interface. need but in reality user intf. not needed
+    := AXI4UserYanker(None) // remove user field on AXI interface. need but in reality user intf. not needed
     := AXI4Fragmenter() // deal with multi-beat xacts
     := ServAXI4MNode) // Custom SERV node.
 
