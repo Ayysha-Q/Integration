@@ -187,6 +187,9 @@ override lazy val module = new ServTileModuleImp(this)
   val idBitsM = 0
   //val beatBytes = 4
 
+  val portNameS = "serv-axi4-slave"
+  val idBitsS = 1
+
   val ServAXI4MNode = AXI4MasterNode(
     Seq(AXI4MasterPortParameters(
       masters = Seq(AXI4MasterParameters(
@@ -211,6 +214,7 @@ val slaveTLNode = TLIdentityNode()
 val ServAXI4SNode = AXI4SlaveNode(Seq(
   AXI4SlavePortParameters(
     slaves = Seq(AXI4SlaveParameters(
+      name          = portNameS,
       address       = Seq(AddressSet(0x40000000L, 0x3FF)),
       resources     = (new SimpleDevice("serv", Seq("ucbbar,serv"))).reg("mem"),
       executable    = false,
