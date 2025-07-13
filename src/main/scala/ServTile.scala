@@ -81,7 +81,7 @@ case class ServCoreParams(
   val mcontextWidth = 0              // No machine context
   val scontextWidth = 0              // No supervisor context
   // SERV SPECIFIC
-  val aw_b: Int = 12
+  val aw_b: Int = 13
   val iw_b: Int = 0
   val uw_b: Int = 0
   val with_csr_b: Boolean = true
