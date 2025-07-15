@@ -325,11 +325,11 @@ class ServTileModuleImp(outer: ServTile) extends BaseTileModuleImp(outer){
     //unused signals
     core.io.i_rm_user := 0.U 
     core.io.i_rm_id := 0.U 
-  
+  }
             
   //------------SERV SLAVE NODE CONNECTION WITH AXI BUNDLE-----------------//
   //-------------FROM EXTERNAL TO SERVING
-outer.ServAXI4SNode.in foreach { case (in, edgeIn) =>
+outer.axi4SlaveNode.in foreach { case (in, edgeIn) =>
   in.aw.ready := core.io.o_awready
   core.io.i_awvalid := in.aw.valid
   core.io.i_awaddr  := in.aw.bits.addr
